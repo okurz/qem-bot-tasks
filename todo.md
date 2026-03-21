@@ -21,3 +21,12 @@ confirmation.
     reviewers have approved, defaulting to "autogits_obs_staging_bot" and
     "sle_installcheck_bot". Triggering openQA tests when assets are incomplete
     or packages don't install should be avoided.
+37. *WIP* we kept older compatibility commands for long, e.g. "inc-approve".
+    We changed all in production so can remove the old commands and find new
+    combinations that make sense. qem-bot supports multiple commands.
+    sub-comment is not currently used in production so we should consider to
+    remove that. gitea-sync and smelt-sync both take about 30s to run in
+    production where most of the time is spent on setting up runtime
+    environments, e.g. containers, the command execution of smelt-sync itself
+    only takes 4s, gitea-sync itself takes 14s. full-run is not used in
+    production and likely does not include gitea-sync.
